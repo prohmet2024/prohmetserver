@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Başarıyla Giriş</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Başarıyla Giriş Yaptınız!</h1>
+        <button id="accounts-btn" style="position: absolute; top: 10px; right: 10px; background-color: gray; color: white;">Mevcut Hesaplar</button>
+        <div id="accounts-list" style="display: none; position: absolute; top: 40px; right: 10px; background: #fff; border: 1px solid #ccc; padding: 10px;">
+            <ul id="accounts-ul"></ul>
+        </div>
+    </header>
+    <main id="main-content">
+        <div class="buttons-container">
+            <button id="general-files">Genel Dosyalara Gir</button>
+            <button id="personal-folder">Kişisel Dosyalara Gir</button>
+        </div>
+    </main>
+    <footer>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        document.getElementById("general-files").addEventListener("click", function() {
+            window.location.href = 'genel_dosyalar.php';
+        });
+
+        document.getElementById("accounts-btn").addEventListener("click", function() {
+            const accountsList = document.getElementById("accounts-list");
+            accountsList.style.display = accountsList.style.display === "none" ? "block" : "none";
+            loadAccounts();
+        });
+
+        function loadAccounts() {
+            fetch('get_accounts.php')
+                .then(response => response.json())
+                .then(accounts => {
+                    const accountsUl = document.getElementById("accounts-ul");
+                    accountsUl.innerHTML = '';
+                    accounts.forEach(account => {
+                        accountsUl.innerHTML += `<li>${account} ${account === currentUsername ? '(sen)' : ''}</li>`;
+                    });
+                });
+        }
+    </script>
+</body>
+</html>

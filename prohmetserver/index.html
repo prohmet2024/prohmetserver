@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Sitem</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Dosya Yükleme Sistemi</h1>
+    </header>
+    <main>
+        <div class="login-container" id="login-container">
+            <h2>Giriş Yap</h2>
+            <form id="login-form">
+                <label for="username">Kullanıcı Adı:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Şifre:</label>
+                <div class="password-field">
+                    <input type="password" id="password" name="password" required>
+                    <span class="material-icons password-toggle" id="password-toggle">visibility</span>
+                </div>
+                <button type="submit">Giriş Yap</button>
+                <p>Hesabınız yok mu? <a href="#" id="register-link">Hesap Oluştur</a></p>
+            </form>
+        </div>
+        <div class="register-container" id="register-container" style="display:none;">
+            <h2>Hesap Oluştur</h2>
+            <form id="register-form">
+                <label for="new-username">Kullanıcı Adı:</label>
+                <input type="text" id="new-username" name="new-username" required>
+                <label for="new-password">Şifre:</label>
+                <div class="password-field">
+                    <input type="password" id="new-password" name="new-password" required>
+                    <span class="material-icons password-toggle" id="new-password-toggle">visibility</span>
+                </div>
+                <label for="confirm-password">Şifreyi Tekrar Girin:</label>
+                <div class="password-field">
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                    <span class="material-icons password-toggle" id="confirm-password-toggle">visibility</span>
+                </div>
+                <button type="submit">Kayıt Ol</button>
+                <p>Zaten bir hesabınız var mı? <a href="#" id="login-link">Giriş Yap</a></p>
+            </form>
+        </div>
+    </main>
+    <footer>
+    </footer>
+    <script src="script.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
